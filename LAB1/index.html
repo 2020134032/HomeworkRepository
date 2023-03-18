@@ -6,14 +6,83 @@
 </head>
 
 <body>
-    <head> 
-        <h1>LAB1</h1> 
-    </head>
-   
+    <header>
+        <h1>LAB1</h1>
+        <h2>안녕하세요 정준입니다.</h2>
+        <nav> Contents
+            <ul>
+
+                <li><a href="#about">about me</a></li>
+                <li><a href="#pages">pages I visit</a></li>
+                <li><a href="#foods">foods I like</a></li>
+                <li><a href=#table>Table</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h3>about me</h3>
+            <p>Second grade</p>
+            <p>Earth System Sciences</p>
+            <p>Yonsei University</p>
+        </section>
+
+        <section id="pages">
+            <h3>pages I visit</h3>
+            <ul>
+                <li><a href="https://www.youtube.com">YouTube</a></li>
+                <li><a href="https://ys.learnus.org/">LearnUs</a></li>
+            </ul>
+        </section>
+
+        <section id="foods">
+            <h3>Foods I like</h3>
+            <img src="images/whopper_319_319.jpg" alt="whopper burger" width="120" height="120">
+            <img src="images/apple_256_256.jpg" alt="green apple" width="120" height="120">
+            <img src="images/bread_256_256.png" alt="bread loaf" width="120" height="120">
+        </section>
+
+        <section id="table">
+            <h3>Table</h3>
+            <table border="2">
+                <caption>My info</caption>
+                <thead>
+                    <tr>
+                        <td>이름</td>
+                        <td>정준</td>
+                        <td>학년</td>
+                        <td>2</td>
+
+                    </tr>
+                    <tr> <!--2-->
+                        <td>전공</td>
+                        <td>지구시스템과학과</td>
+                        <td colspan="2"><img src="images/hammer_256_256.jpg" alt="hammer" width="60" height="60"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> <!--3-->
+                        <td rowspan="3">좋아하는 음식</td>
+                        <td colspan="3">와퍼</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">사과</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">빵</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+    </main>
+
+    <hr>
     <footer>
         <section>
             &copy; June Jeong
-            <a href="../index.html">main page</a>
+            <p><a href="..">main page</a></p>
             <p><a href="https://github.com/2020134032/HomeworkRepository">github HomeworkRepository</a></p>
         </section>
     </footer>
