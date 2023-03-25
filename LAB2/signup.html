@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB2_signUp</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+    <header>
+        <h1>Yonsei IP shop</h1>
+        <span class="redirections">
+            <span>
+                <a href="login.html">login</a>
+            </span>
+            <span class="current">
+                <a href="signup.html">sign up</a>
+            </span>
+        </span>
+    </header>
+
+    <hr>
+
+    <main>
+        <form>
+            <p>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" autofocus required placeholder="enter name">
+            </p>
+            <p>
+                <label for="bday">Birthday:</label>
+                <input type="date" id="bday" name="bday" value="2000-01-01">
+            </p>
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="example@example.com">
+            </p>
+            <p>
+                <label for="tel">Tel:</label>
+                <input type="tel" name="tel" id="tel" placeholder="000-0000-0000">
+            </p>
+            <p>
+                <label for="grade">Grade:</label>
+                <input type="number" name="name" id="grade" placeholder="2" min="1" max="8" step="1">
+            </p>
+            <p>
+                <label>Sex:</label>
+
+                <input type="radio" name="sex" id="sex1" value="male" required checked>
+                <label for="sex1">Male</label>
+
+                <input type="radio" name="sex" id="sex2" value="female">
+                <label for="sex2">Female</label>
+            </p>
+            <p>
+                <label>Interest:</label>
+
+                <input type="checkbox" name="interest" id="interest1" value="games">
+                <label for="interest1">Games</label>
+
+                <input type="checkbox" name="interest" id="interest2" value="books">
+                <label for="interest2">Books</label>
+
+                <input type="checkbox" name="interest" id="interest3" value="movies">
+                <label for="interest3">Movies</label>
+            </p>
+            <p>
+                <label for="id">Username:</label>
+                <input type="text" name="id" id="id" placeholder="enter username" autocomplete="on">
+            </p>
+            <p>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="enter password">
+            </p>
+            <p>
+                <label for="repassword">re-enter password:</label>
+                <input type="password" name="repassword" id="repassword" placeholder="">
+            </p>
+            <p class="submit">
+                <input class="green" type="submit" name="submit" id="submit" value="Sign Up!">
+                <input class="red" type="reset" name="reset" id="reset" value="reset">
+            </p>
+        </form>
+        <p>
+            <a href="login.html">Already have an account? Login here.</a>
+        </p>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; June Jeong</p>
+        <address>
+            <p><a href="..">main page</a></p>
+            <p><a href="https://github.com/2020134032/HomeworkRepository">github HomeworkRepository</a></p>
+        </address>
+    </footer>
+</body>
+
+</html>
