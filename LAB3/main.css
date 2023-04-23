@@ -3,8 +3,6 @@
 }
 
 html { 
-    margin: auto;
-    align-content: center;
     max-width: 1000px;
     min-width: 200px;
 }
