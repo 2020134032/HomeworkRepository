@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <script>
+        let rawdata="2016190060 2018124068 2022148071 2022148023 2021125040 2020147516 2020147599 2018126008 2022148039 2021147503 2017129007 2022148066 2021147611 2020232195 2022148004 2022148041 2019155022 2020147529 2020147589 2016181009 2022148081 2021147572 2019181013 2022148068 2020147558 2020181001 2022148062 2021147513 2019181052 2022148025 2022110039 2020190143 2022148072 2019117030 2021195038 2022148056 2021119017 2016195125 2022148005 2019119057 2019199037 2022148064 2017119019 2021175039 2022148003 2022123167 J201862010 2022148030 2020123075 2022149025 2022148084 2018135016 2022149027 2022148033 2020134032 2022149014 2020147562 2022144038 2022149029 2020147540 2021144075 2020147539 2019147514 2021143511 2020147555 2018147583 2021147002 2022148032 2020147524 2022148042 2020147504 2021147560 2022148043 2019147568 2022148083 2017147567 2022148067 2016147501 2022148017 2021147529 2022148094 2021147521 2022148065 2018147586 2022148077 2019147560 2022148073 2017147541 2019147565 2017147527 2022148011 2020147602 2021147584 2019147603 2022148070 2015147544 BK201912632 2017147566 2020193005 2019121179 2020251005";
+
+        let list = rawdata.split(" ")
+        let id= 0
+
+        function before() {
+            --id; 
+            go()}
+        function after() {
+            ++id;
+            go()
+            }
+        function showid(theid){
+            let thelink = "https://"+theid+".github.io/HomeworkRepository/LAB3/"
+            let linkto = '<a href=\"'+thelink+ '\">' + theid + "</a>"
+            document.querySelector("p#id").innerHTML = linkto
+            "\n"+ "https://"+theid+".github.io/HomeworkRepository/LAB3/";
+        }
+        function go(){
+            var thelink = "https://"+list[id]+".github.io/HomeworkRepository/LAB1/";
+            document.querySelector("iframe").src = thelink
+            showid(list[id]);
+            document.querySelector("input").value=id;
+        }
+        function numbutton(){
+            id = document.querySelector("input").value;
+            go();
+        }
+        /*
+        */
+    </script>
+
+</head>
+<body>
+    <p id="id">An iframe</p>
+    <button type = "button" onclick="before()">&lt;</button>
+    <button type = "button" onclick="after()">&gt;</button>
+    <input type="number" onclick="numbutton()" step="10" value="1">
+    <button type = "button" onclick="numbutton()" >goto</button>
+    <br>
+
+<iframe src="/default.asp" width="100%"" height="1000vh" style="border:1px solid black; transform: scale(0.8,0.8) translate(-10%,-10%);">
+</iframe>
+   
+</body>
+</html>
