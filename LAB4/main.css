@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+}
+
+html { 
+    max-width: 1000px;
+    min-width: 200px;
+}
+div.imagecontainer{
+    position: relative;
+    width: 30%;
+    height: min-content;
+    margin: 10px;
+    padding: 1px;
+    transition: 2s ease-out;
+}
+.overlaytxt{
+    display: inline;
+    text-align: center;
+    font-size: 0.5em;
+    background-color: white;
+    position: absolute;
+    opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: ease 2s;
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8%;
+}
+
+div.imagecontainer:hover{
+   transform: scale(1.5,1.5);
+   z-index: 1;
+}
+
+div.imagecontainer:hover .overlaytxt{
+    opacity: 0.8;
+}
+div.imagecontainer:hover img{
+    opacity: 1;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: left;
+    font-size: 1.5rem;
+    animation-duration: 2s;
+}
+
+input {
+    border: double;
+    border-width: 1px;
+}
+
+input:hover {
+    background-color: rgba(128, 128, 128, 0.114);
+}
+@keyframes slidehead {
+    from {
+        transform: translate(100%);
+    }
+    to{
+        transform: translate(0%);
+    }
+
+}
+
+.slideanimation {
+    animation-name: slidehead;
+    animation-duration: 2;
+    animation-timing-function: ease-out;
+}
+.submit input {
+    text-align: center;
+    padding: 1em;
+    margin: 0.2rem;
+    width: 100px;
+}
+
+.submit input:hover {
+    background-color: white;
+}
+
+
+.green {
+    color: mediumseagreen;
+}
+
+.red {
+    color: tomato;
+}
+
+.redirections * {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.redirections {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.redirections div:hover {
+    background-color: rgba(178, 34, 34, 0.2);
+}
+
+.redirections div {
+    padding: 0.5rem;
+    margin: 0.2rem;
+}
+
+.current {
+    border-style: solid none;
+    border-color: firebrick;
+}
+
+.flex {
+    display: flex;
+    border: solid 1px gray; /*blue*/
+    margin: 5px;
+}
+
+main.flex {
+    text-align: center;
+    flex-direction: column;
+    border-color: gray; /* red*/
+}
+
+.title {
+    flex-direction: column;
+    border-color: gray;
+}
+
+.bigroup {
+    flex-direction: row;
+    border-color: gray; /*yellow*/
+
+}
+
+
+.group {
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    flex-direction: row;
+    margin: 4px;
+    border: solid 2px gray;
+}
+
+
+
+.etc {
+    flex-direction: column;
+}
+
+@media screen and (max-width:800px) and (min-width:481px) {
+    .bigroup {
+        flex-wrap: wrap;
+
+    }
+
+    .group {
+
+        width: 48%;
+        border-color: aquamarine;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .redirections {
+        flex-direction: column;
+    }
+
+    .bigroup {
+        flex-wrap: wrap;
+    }
+
+    .group {
+        flex-direction: column;
+        width: 100%;
+        border-color: rgb(63, 101, 88);
+    }
+
+}
