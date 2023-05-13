@@ -1,34 +1,50 @@
 [
     {
         "title":"ditto",
-        "artist":"newjeans"
+        "artist":"newjeans",
+        "price":"1000",
+        "group":"group/band"
     },
     {
         "title":"thirsty",
-        "artist":"검정치마"
+        "artist":"검정치마",
+        "price":"1000",
+        "group":"group/band"
     },
     {
         "title":"nwjns",
-        "artist":"newjeans"
+        "artist":"newjeans",
+        "price":"1000",
+        "group":"group/band"
     },
     {
-        "title":"teent",
-        "artist":"검정치마"
+        "title":"teen troubles",
+        "artist":"검정치마",
+        "price":"1000",
+        "group":"group/band"
     },
     {
-        "title":"lovepoem",
-        "artist":"아이유"
+        "title":"love poem",
+        "artist":"아이유",
+        "price":"1000",
+        "group":"solo"
     },
     {
         "title":"lilac",
-        "artist":""
+        "artist":"아이유",
+        "price":"1000",
+        "group":"solo"
     },
     {
         "title":"201",
-        "artist":"검정치마"
+        "artist":"검정치마",
+        "price":"1000",
+        "group":"solo"
     },
     {
-        "title":"grad",
-        "artist":"브로콜리너마저"
+        "title":"graduation",
+        "artist":"브로콜리너마저",
+        "price":"1000",
+        "group":"group/band"
     }
 ]

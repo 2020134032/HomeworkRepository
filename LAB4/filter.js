@@ -36,8 +36,8 @@ function updateSection(datas){
 }
 
 function filterList(datajson){
-    let artist = document.getElementById("artist").value.trim()
-    let text = document.getElementById("text").value.trim()
+    let artist = document.getElementById("artist").value.trim().toLowerCase()
+    let text = document.getElementById("text").value.trim().toLowerCase()
     let sortby = document.getElementById("sortby").value
 
     if(datajson.artist.includes(artist)&& 
@@ -58,10 +58,18 @@ function load(filteredlist){
 function makeAlbumUnit(albumObj){
     const title = albumObj.title;
     const artist = albumObj.artist;
+    const price = albumObj.price;
+    const group = albumObj.group;
+
 
     const result=`<div class="imagecontainer">
-        <img src="images/${title}.jpg" alt="200">ddddddd
-        <div class="overlaytxt">${title}:${artist}</div>
+        <img src="images/${title}.jpg" alt="${title}">
+        ${price}만원
+        <div class="overlaytxt">
+        Category:<br>${group}<br>
+        Title:${title}<br>
+        Artist:${artist}
+        </div>
         </div>`
     return result
 }
