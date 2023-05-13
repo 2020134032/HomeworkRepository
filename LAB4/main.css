@@ -46,7 +46,7 @@ input,select {
     width: 100%;
 }
 
-.submit input:hover, input:hover {
+.submit input:hover, .albumfilter:hover {
     background-color: rgb(244, 244, 244);
 }
 
