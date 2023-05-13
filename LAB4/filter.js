@@ -6,13 +6,12 @@ function alertme(data){
     alerter.innerHTML = data;
 }
 var counter = 0;
+var newlist;
 //main
 (async function (){
    
     const datas = await fetchjson("product.json");
-
-    newlist = applyFilter(datas)
-    load(newlist)
+    updateSection(datas);
 
     document.querySelectorAll(".albumfilter").forEach(tag=>
         tag.addEventListener("input",()=>updateSection(datas)))
