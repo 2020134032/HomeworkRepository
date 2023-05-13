@@ -19,9 +19,9 @@ var newlist;
 
     
     window.onscroll = ()=>{
-        if(window.innerHeight+window.scrollY>= document.body.offsetHeight){
-            load(newlist)
-        }
+        if(window.innerHeight+window.scrollY+40>= document.body.offsetHeight)
+            load(newlist);
+
     }
 
 })();
