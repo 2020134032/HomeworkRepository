@@ -26,9 +26,17 @@
     <hr>
     <main>
         <div class = "filter">
-            <input id="artist" type="text" placeholder="artist">
-            <input id="text" type="text">
-            <input id="sortby" type="text">
+            <select class="albumfilter" id="group">
+                <option value="">All</option>
+                <option value="solo">solo</option>
+                <option value="group/band">group/band</option>
+            </select>
+            <input class="albumfilter" id="text" type="text" placeholder="Title/Artist">
+            <select class="albumfilter" id="sortby">
+                <option value="">sortby</option>
+                <option value="high">High Price</option>
+                <option value="low">Low Price</option>
+            </select>
         </div>
         <div>
             <h2>

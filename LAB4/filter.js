@@ -11,10 +11,10 @@ var counter = 0;
    
     const datas = await fetchjson("product.json");
 
-    newlist = datas.filter(filterList);
+    newlist = applyFilter(datas)
     load(newlist)
 
-    document.querySelectorAll("input").forEach(tag=>
+    document.querySelectorAll(".albumfilter").forEach(tag=>
         tag.addEventListener("input",()=>updateSection(datas)))
     
 
@@ -30,17 +30,28 @@ var counter = 0;
 function updateSection(datas){
     counter = 0
     albumcontent.innerHTML=""
-    newlist = datas.filter(filterList)
+    
+    newlist = applyFilter(datas) 
     load(newlist)
 
 }
 
-function filterList(datajson){
-    let artist = document.getElementById("artist").value.trim().toLowerCase()
-    let text = document.getElementById("text").value.trim().toLowerCase()
-    let sortby = document.getElementById("sortby").value
+function applyFilter(rawlist){
+    newlist = rawlist.filter(selectfilter);
 
-    if(datajson.artist.includes(artist)&& 
+    if(document.getElementById("sortby").value=="low")
+     newlist.sort((a,b) => a.price-b.price);
+    if(document.getElementById("sortby").value=="high")
+     newlist.sort((a,b) => b.price-a.price);
+
+    return newlist
+}
+
+function selectfilter(datajson){
+    let group = document.getElementById("group").value.trim().toLowerCase()
+    let text = document.getElementById("text").value.trim().toLowerCase()
+
+    if(datajson.group.includes(group)&& 
     (datajson.artist.includes(text)||datajson.title.includes(text))){
         return true
     }
@@ -49,8 +60,6 @@ function load(filteredlist){
     const start= counter;
     const end= start+1;
     counter = end +1;
-
-    // filteredlist.forEach(e => albumcontent.innerHTML+= makeAlbumUnit(e))
     albumcontent.innerHTML+=makeAlbumUnit(filteredlist[start])
     albumcontent.innerHTML+=makeAlbumUnit(filteredlist[end])
 
@@ -79,43 +88,3 @@ async function fetchjson(url){
     const data = await res.json(); 
     return data
 }
-
-
-/*<div class="flex group">
-<div class="imagecontainer">
-    <img src="images/201.jpg" alt="100">
-    <div class="overlaytxt">201</div>
-</div>
-
-</div>
-<div class="flex group">
-
-<div class="imagecontainer">
-    <img src="images/ditto.jpg" alt="300">
-    <div class="overlaytxt">ditto</div>
-</div>
-<div class="imagecontainer">
-    <img src="images/nwjns.jpg" alt="400">
-    <div class="overlaytxt">nwjns</div>
-</div>
-</div>
-<div class="flex group">
-<div class="imagecontainer">
-    <img src="images/lovepoem.jpg" alt="500">
-    <div class="overlaytxt">lovepoem</div>
-</div>
-<div class="imagecontainer">
-    <img src="images/lilac.jpg" alt="600">
-    <div class="overlaytxt">lilac</div>
-</div>
-</div>
-<div class="flex group">
-<div class="imagecontainer">
-    <img src="images/teent.jpg" alt="700">
-    <div class="overlaytxt">teen<br>troubles</div>
-</div>
-<div class="imagecontainer">
-    <img src="images/grad.jpg" alt="800">
-    <div class="overlaytxt">grad</div>
-</div>
-</div>*/
