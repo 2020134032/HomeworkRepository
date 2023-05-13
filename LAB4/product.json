@@ -46,5 +46,23 @@
         "artist":"브로콜리너마저",
         "price":"128",
         "group":"group/band"
+    },
+    {
+        "title":"omg",
+        "artist":"newjeans",
+        "price":"423",
+        "group":"group/band"
+    },
+    {
+        "title":"our love is great",
+        "artist":"백예린",
+        "price":"451",
+        "group":"solo"
+    },
+    {
+        "title":"modern times",
+        "artist":"아이유",
+        "price":"331",
+        "group":"solo"
     }
 ]

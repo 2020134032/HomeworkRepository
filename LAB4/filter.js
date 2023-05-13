@@ -19,7 +19,7 @@ var newlist;
 
     
     window.onscroll = ()=>{
-        if(window.innerHeight+window.scrollY+40>= document.body.offsetHeight)
+        if(window.innerHeight+window.scrollY+60>= document.body.offsetHeight)
             load(newlist);
 
     }
