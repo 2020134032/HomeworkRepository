@@ -33,7 +33,7 @@ input {
 }
 
 .submit input:hover, input:hover {
-    background-color: rgba(128, 128, 128, 0.114);
+    background-color: rgb(244, 244, 244);
 }
 
 .green{color: mediumseagreen;}
@@ -67,8 +67,8 @@ div.imagecontainer{
     position: relative;
     width: 50%;
     margin: 10px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 10%;
+    margin-bottom: 10%;
     padding: 1px;
     transition: 2s ease-out;
     justify-content: center;
@@ -97,6 +97,13 @@ img {
 
 div.imagecontainer:hover .overlaytxt{
     opacity: 0.8;
+}
+
+.filter{
+    position:sticky;
+    top: 10px;
+    z-index: 1;
+    opacity: 1;
 }
 
 

@@ -5,14 +5,56 @@ document.body.appendChild(alerter)
 function alertme(data){
     alerter.innerHTML = data;
 }
-
+var counter = 0;
 //main
 (async function (){
-    const datas = await fetchjson("product.json")
-    datas.forEach(e => albumcontent.innerHTML+= makeAlbumUnit(e))
-})()
-//
+   
+    const datas = await fetchjson("product.json");
 
+    newlist = datas.filter(filterList);
+    load(newlist)
+
+    document.querySelectorAll("input").forEach(tag=>
+        tag.addEventListener("input",()=>updateSection(datas)))
+    
+
+    
+    window.onscroll = ()=>{
+        if(window.innerHeight+window.scrollY>= document.body.offsetHeight){
+            load(newlist)
+        }
+    }
+
+})();
+//
+function updateSection(datas){
+    counter = 0
+    albumcontent.innerHTML=""
+    newlist = datas.filter(filterList)
+    load(newlist)
+
+}
+
+function filterList(datajson){
+    let artist = document.getElementById("artist").value.trim()
+    let text = document.getElementById("text").value.trim()
+    let sortby = document.getElementById("sortby").value
+
+    if(datajson.artist.includes(artist)&& 
+    (datajson.artist.includes(text)||datajson.title.includes(text))){
+        return true
+    }
+}
+function load(filteredlist){
+    const start= counter;
+    const end= start+1;
+    counter = end +1;
+
+    // filteredlist.forEach(e => albumcontent.innerHTML+= makeAlbumUnit(e))
+    albumcontent.innerHTML+=makeAlbumUnit(filteredlist[start])
+    albumcontent.innerHTML+=makeAlbumUnit(filteredlist[end])
+
+}
 function makeAlbumUnit(albumObj){
     const title = albumObj.title;
     const artist = albumObj.artist;
