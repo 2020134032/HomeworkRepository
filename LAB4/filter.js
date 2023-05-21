@@ -1,10 +1,5 @@
 const albumcontent = document.querySelector(".albumcontent")
 
-const alerter = document.createElement("p")
-document.body.appendChild(alerter)
-function alertme(data){
-    alerter.innerHTML = data;
-}
 var counter = 0;
 var newlist;
 //main
@@ -59,9 +54,8 @@ function load(filteredlist){
     const start= counter;
     const end= start+1;
     counter = end +1;
-    albumcontent.innerHTML+=makeAlbumUnit(filteredlist[start])
-    albumcontent.innerHTML+=makeAlbumUnit(filteredlist[end])
-
+    albumcontent.appendChild(makeAlbumUnit(filteredlist[start]));
+    albumcontent.appendChild(makeAlbumUnit(filteredlist[end]));
 }
 function makeAlbumUnit(albumObj){
     const title = albumObj.title;
@@ -69,17 +63,22 @@ function makeAlbumUnit(albumObj){
     const price = albumObj.price;
     const group = albumObj.group;
 
-
-    const result=`<div class="imagecontainer">
-        <img src="images/${title}.jpg" alt="${title}">
-        ${price}만원
-        <div class="overlaytxt">
-        Category:<br>${group}<br>
-        Title:${title}<br>
-        Artist:${artist}
-        </div>
-        </div>`
-    return result
+    let unit = document.createElement("div");
+    unit.innerHTML=`<img src="images/${title}.jpg" alt="${title}">
+    ${price}만원
+    <div class="overlaytxt" style="opacity:0"
+    Category:<br>${group}<br>
+    Title:${title}<br>
+    Artist:${artist}
+    </div>`;
+    unit.setAttribute("class","imagecontainer");
+    unit.querySelector(".overlaytxt").onclick = function(){
+        if(this.style.opacity ==0)
+        this.setAttribute("style","opacity:0.8;")
+        else
+        this.setAttribute("style","opacity:0;")
+    }
+    return unit
 }
 
 async function fetchjson(url){
