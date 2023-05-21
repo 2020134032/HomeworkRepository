@@ -114,9 +114,9 @@ img {
     border-radius: 8%;
 }
 
-div.imagecontainer:hover .overlaytxt{
+/* div.imagecontainer:hover .overlaytxt{
     opacity: 0.8;
-}
+} */
 
 .filter{
     width: 50%;
