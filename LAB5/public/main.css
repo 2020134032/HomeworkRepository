@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html > * { 
+    max-width: 900px;
+    min-width: 200px;
+    margin: auto;
+    text-align: center;
+    align-items:center
+}
+main{
+    font-size: 15pt;
+}
+
+main, .albumcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: solid 1px gray;
+    border-radius:5px;
+    width: 100%;
+}
+
+.albumcontent{
+    width: 70%;
+}
+
+input,select {
+    border: double;
+    border-width: 1px;
+    margin: 2px;
+    background-color: white;
+}
+
+.submit input {
+    text-align: center;
+    padding: 1em;
+    margin: 0.2rem;
+    width: 100px;
+}
+.filter input,select{
+    width: 100%;
+}
+
+.submit input:hover, .albumfilter:hover {
+    background-color: rgb(244, 244, 244);
+}
+
+.green{color: mediumseagreen;}
+
+.red {color: tomato;}
+
+.redirections div, .redirections a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem;
+    margin: 0.2rem;
+}
+
+.redirections {
+    display: flex;
+    justify-content: center;
+}
+
+.redirections div:hover {
+    background-color: rgba(178, 34, 34, 0.2);
+}
+
+.current {
+    border-style: solid none;
+    border-color: firebrick;
+}
+
+
+div.imagecontainer{
+    position: relative;
+    width: 60%;
+    margin: 10px;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    padding: 1px;
+    transition: 0.5s ease;
+    justify-content: center;
+    border: solid 1px gray;
+    border-radius: 8%;
+}
+.overlaytxt{
+    text-align: center;
+    font-size: 75%;
+    width: 100%;
+    height:100%;
+    padding-top: 20%;
+    padding-bottom:50%;
+    background-color: whitesmoke;
+    position: absolute;
+    opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: ease 0.5s;
+  overflow-wrap: break-word;
+  border-radius: 8%;
+  overflow:auto;
+}
+
+
+img {
+    width: 100%;
+    border-radius: 8%;
+}
+
+/* div.imagecontainer:hover .overlaytxt{
+    opacity: 0.8;
+} */
+
+.filter{
+    width: 50%;
+    display: flex;
+    position:sticky;
+    top: 10px;
+    z-index: 1;
+    opacity: 1;
+    justify-content: center;
+}
+
+#data{
+    display: none;
+}
+
+ol{
+    list-style-position: inside;
+}
+
+
+@media screen and (max-width:480px) {
+    .redirections, .filter{
+        flex-direction: column;
+    }
+}

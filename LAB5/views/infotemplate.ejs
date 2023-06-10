@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info</title>
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+</head>
+<body>
+    <header>
+        <h1>Yonsei IP shop: info</h1>
+        <div class="redirections">
+            <div>
+                <a href="/">main page</a>
+            </div>
+            <div>
+                <a href="/login">login</a>
+            </div>
+            <div>
+                <a href="/signup">sign up</a>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <img src="<%= data.product_image %>" alt="<%= data.product_title %>" style="width:150px">
+    <div>product_id:  <%= data.product_id %></div>
+    <div>product_image:  <%= data.product_image %></div>
+    <div>product_title:  <%= data.product_title %></div>
+    <div>product_price:  <%= data.product_price %></div>
+    <div>product_category:  <%= data.product_category %></div>
+    <div>product_artist:  <%= data.product_artist %></div>
+    <hr>
+    <form action="/product/<%= data.product_id %>" method="post" enctype="multipart/form-data">
+        type comment
+        <input type="text" placeholder="type..." name="comment" value="" required >
+        <input type="submit">
+    </form>
+<hr>
+<ol><%- comment %></ol>
+</body>
+</html>

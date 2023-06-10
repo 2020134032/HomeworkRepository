@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB5</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+   
+</head>
+<body>
+    <header>
+        <h1>Yonsei IP shop</h1>
+        <div class="redirections">
+            <div class="current">
+                <a>main page</a>
+            </div>
+            <div>
+                <a href="/login">login</a>
+            </div>
+            <div>
+                <a href="/signup">sign up</a>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <main>
+        <div class = "filter">
+            <select class="albumfilter" id="group">
+                <option value="">All</option>
+                <option value="solo">solo</option>
+                <option value="group/band">group/band</option>
+            </select>
+            <input class="albumfilter" id="text" type="search" placeholder="Title/Artist">
+            <select class="albumfilter" id="sortby">
+                <option value="">sortby</option>
+                <option value="high">High Price</option>
+                <option value="low">Low Price</option>
+            </select>
+        </div>
+        <div>
+            <h2>
+                ALBUMS
+            </h2>
+        </div>
+        <div class="albumcontent">
+               
+        </div>
+    </main>
+    <!-- the following data part is not static. the data is dynamically updated from the server when loaded.-->
+    <span id="data"><%= JSON.stringify(data) %></span>
+    <script src="filter.js"></script>
+</body>
+</html>
