@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .democlass{ background: yellow;}
+        </style>
+    </head>
+    <body>
+        <a href="#ten">ten</a>
+
+        <section id="ten">
+        chapter 10
+
+        html dom: standard object model and api for html
+
+        an object model for html.
+            - elements as objects in an object hierarchy (dom tree)
+            - properties
+            methods
+            events
+        an api for javascript. js can
+            - add change remove
+            html elements, attributes, css styles, events
+        
+        when a web page is loaded browser creats document object of the page
+
+        the html model is constructed as a tree of objects
+
+        --------------
+        document object
+        - owner of all othe objects in a web page.
+
+        <h1 id="demo">this has      extra space<strong>bold</strong></h1>
+        <div id="main">
+            dude
+            <p id="xml">p1?click.</p>
+            <p>p2.</p>
+        </div>
+        <div class="intro"> intro dov</div>
+
+        <img id="img1" src="sliely.gif" alt="jjj">
+    </section>
+    <div id="nav">
+        <form id="myform" action="#">
+            <input type="text" id="gbi" value="heading1">
+            <input type="checkbox" id=check"" value="heading1">
+            <input type="submit">
+            <input type="reset">
+        </form>
+        <p id="helptext">help</p>
+        <select name="" id="">
+            <option value="red">1</option>
+            <option value="blue">2</option>
+            <option value="green">3</option>
+            <option value="pink">4</option>
+        </select>
+        <button id="submit" data-color="red">r</button>
+        <button data-color="blue">b</button>
+        <button data-color="green">g</button>
+        <button data-color="orange">o</button>
+    </div>
+<br>
+    <span id="timer">0</span>
+
+<table id="canvas">
+    <tbody id="tablebody"></tbody>
+</table>
+
+<div>
+    <ul>
+        <li id="black">brr</li>
+        <li id="green">rg</li>
+        <li id="red">rrrr</li>
+        <li id="blue">brr</li>
+        <li id="brown">rrb</li>
+    </ul>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', ()=> {
+document.querySelector('form').onsubmit = ()=>{
+const name = document.querySelector("#gbi").value;
+alert(name)
+}})
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    document.querySelectorAll('button').forEach( e => {e.onclick = ()=>{
+        document.querySelector("#demo").style.color = e.dataset.color;}
+    })
+})
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelector('select').onchange = (e)=>{
+        document.querySelector("#demo").style.color = e.target.value;
+    }
+})
+
+let second = 0
+function starttimer(){
+    window.setInterval( updatetime, 1000)
+}
+
+function updatetime(){
+    second++;
+    document.getElementById('timer').innerHTML=second;
+}
+window.addEventListener("load", starttimer)
+
+function createcanvas(){
+    let side =100
+    let tbody = document.getElementById("tablebody")
+
+    for(let i=0; i<side; i++){
+        let row = document.createElement("tr")
+        for(let j=0; j<side;j++){
+            let cell = document.createElement("td")
+            row.appendChild(cell)
+        }
+        tbody.appendChild(row)
+    }//end for
+
+    document.getElementById('canvas').addEventListener('mousemove',processmove)
+
+}
+
+function processmove(e){
+    if(e.target.tagName.toLowerCase() == 'td')
+    {
+        if(e.ctrlKey)
+        {
+            e.target.setAttribute('style','background:blue;')
+        }
+        if(e.shiftKey)
+        {
+            e.target.setAttribute('style','background:red;')
+        }
+    }
+}
+
+createcanvas();
+
+img1 = new Image()
+img2 = new Image()
+
+function mouseover(e){
+
+    if(e.target.tagName.toLowerCase() == 'li'){
+        e.target.setAttribute('style', "color:"+ e.target.getAttribute('id')+";")
+    }
+}
+
+document.addEventListener('mouseover',mouseover);
+document.addEventListener('mouseout',mouseout);
+
+function mouseout(e){
+    if(e.target.tagName.toLowerCase() == 'li'){
+        e.target.innerHTML = e.target.getAttribute('id');
+    }
+}
+
+let help = ['aaa','bbb','ccc','4d','5e','6e']
+
+var helptext;
+function init(){
+    helptext= document.getElementById('helptext');
+    let x = document.querySelectorAll('input')
+    registeree(x[0],0)
+    registeree(x[1],1)
+    registeree(x[2],2)
+    registeree(x[3],3)
+
+    
+}
+function registeree( object, num){
+        object.addEventListener('focus', ()=>{helptext.innerHTML=help[num]})
+        object.addEventListener('blur', ()=>{helptext.innerHTML=''})
+    }
+init()
+
+window.onscroll = function(){
+    if(window.innerHeight + window.scrollY >= document.body.offsetHeight ){
+        document.querySelector('body').style.background = 'blue'
+    } else
+    document.querySelector('body').style.background = 'white'
+};
+var jsonurl='https://jsonplaceholder.typicode.com/users/1';
+(function mkae() {
+    var req;
+    document.getElementById('xml').addEventListener('click',makerequest);
+    async function makerequest() {
+        req = new XMLHttpRequest();
+        if(!req){
+            alert("what");
+            return false;
+        }
+        req.onload = ()=>displaycontent();
+        
+        req.open('GET', jsonurl);
+        req.setRequestHeader('Cache-Control','no-cache');
+        req.send();
+    }
+    function displaycontent(){
+        if(req.readyState==4){
+            if(req.status== 200){
+                var myobj = JSON.parse(req.responseText)
+                document.getElementById('demo').innerHTML = "name" + myobj.name
+            } else{
+                alert(req.statusText);
+            }
+        }
+    }
+})();
+
+document.getElementById('xml').addEventListener('click',()=>alert("yo"))
+document.getElementById('xml').addEventListener('click',()=>alert("hho"))
+const demo = document.getElementById('demo')
+
+fetch(jsonurl).then( res => res.json())
+.then(data => demo.parentNode.appendChild(document.createTextNode(data.name)))
+.catch((e)=>alert(e))
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelector('form').addEventListener('submit',()=>{
+        fetch("").then(res=>res.json()).then(data => {
+            const rate = ''
+            document.querySelector('h1').innerHTML= "yes"
+        })
+    })
+})
+
+let counter = 1;
+document.addEventListener('load', load)
+function load(){
+    const start = counter
+    const end = start +1
+    counter = end+1
+    fetch("").then(res => res.json()).then(post => post.forEach(addpost))
+}
+function addpost(comment){
+    const post = document.createElement('div')
+    post.className = 'post'
+    post.innerHTML = comment.body
+    document.querySelector("#posts").appendChild(post)
+}
+window.onscroll = ()=>{
+    if(window.innerHeight + window.scrollY >= document.body.offsetHeight)
+        load();
+}
+
+Promise.all([]).then(val).finally(data=>da)
+
+async function myFetch(){
+    let res = await fetch('coffee')
+    let theblob = await res.blob()
+    let image = document.createElement('img')
+    image.src = URL.createObjectURL(theblob)
+    document.appendChild(image)
+    
+}
+
+{
+    let url = 'example.php'
+    let myform = document.getElementById('myform')
+    let params = new FormData(myform)
+    fetch(url, {method:'POST',body:params})
+}
+</script>
+
+        
+
+
+    </body>
+
+</html>
