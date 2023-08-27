@@ -14,3 +14,4 @@ GET "product/:product_id"
 POST "product/:product_id"
 - 제품별 댓글 폼 정보 서버에 전송(JSON)
 - JSON 형식으로 저장함
+- (댓글 입력 버튼 누를시 POST 요청)
